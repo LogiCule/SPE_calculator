@@ -78,15 +78,17 @@ pipeline {
 
     post {
         success {
+            echo "Sending success email..."
             mail to: "${RECIPIENT_EMAIL}",
-                 subject: "Jenkins Pipeline Success: ${env.JOB_NAME}",
-                 body: "Build completed successfully.\nCheck details: ${env.BUILD_URL}"
+                    subject: "Jenkins Pipeline Success: ${env.JOB_NAME}",
+                    body: "Build completed successfully.\n${env.BUILD_URL}"
         }
 
         failure {
+            echo "Sending failure email..."
             mail to: "${RECIPIENT_EMAIL}",
-                 subject: "Jenkins Pipeline Failed: ${env.JOB_NAME}",
-                 body: "Pipeline failed.\nCheck logs: ${env.BUILD_URL}"
+                    subject: "Jenkins Pipeline Failed: ${env.JOB_NAME}",
+                    body: "Pipeline failed.\n${env.BUILD_URL}"
         }
     }
 }
