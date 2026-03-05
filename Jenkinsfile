@@ -59,8 +59,12 @@ pipeline {
                 )]) {
 
                     sh "echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin"
+
                     sh "docker tag ${IMAGE_NAME}:${BUILD_NUMBER} ${REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER}"
                     sh "docker push ${REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER}"
+
+                    sh "docker tag ${IMAGE_NAME}:${BUILD_NUMBER} ${REGISTRY}/${IMAGE_NAME}:latest"
+                    sh "docker push ${REGISTRY}/${IMAGE_NAME}:latest"
                 }
             }
         }

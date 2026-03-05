@@ -1,0 +1,24 @@
+---
+- name: Deploy Scientific Calculator Container
+  hosts: local
+
+  tasks:
+
+    - name: Pull latest Docker image
+      docker_image:
+        name: logicule/scientific-calculator
+        tag: latest
+        source: pull
+
+    - name: Stop old container if running
+      docker_container:
+        name: scientific-calc
+        state: absent
+
+    - name: Start new container
+      docker_container:
+        name: scientific-calc
+        image: logicule/scientific-calculator:latest
+        state: started
+        interactive: yes
+        tty: yes
