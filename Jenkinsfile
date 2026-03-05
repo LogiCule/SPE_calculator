@@ -6,7 +6,7 @@ pipeline {
         CONTAINER_NAME = "scientific-calc"
         REGISTRY = "logicule"
         DOCKER_CREDENTIALS = "docker-hub-credentials"
-        RECIPIENT_EMAIL = "rahul.dubey@iiitb.ac.in"
+        RECIPIENT_EMAIL = "rahuldubey6543@gmail.com"
     }
 
     stages {
