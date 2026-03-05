@@ -18,11 +18,7 @@ pipeline {
             }
         }
 
-        stage("Checkout Source Code") {
-            steps {
-                git branch: 'main', url: 'https://github.com/yourrepo.git'
-            }
-        }
+
 
         stage("Build Maven Project") {
             steps {
@@ -69,11 +65,11 @@ pipeline {
             }
         }
 
-        stage("Deploy using Ansible") {
-            steps {
-                sh 'ansible-playbook -i inventory deploy.yml'
-            }
-        }
+//        stage("Deploy using Ansible") {
+//            steps {
+//                sh 'ansible-playbook -i inventory deploy.yml'
+//            }
+//        }
     }
 
     post {
