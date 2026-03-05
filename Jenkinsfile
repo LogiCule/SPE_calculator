@@ -69,11 +69,11 @@ pipeline {
             }
         }
 
-//        stage("Deploy using Ansible") {
-//            steps {
-//                sh 'ansible-playbook -i inventory deploy.yml'
-//            }
-//        }
+        stage("Deploy using Ansible") {
+            steps {
+                sh 'ansible-playbook -i inventory.ini deploy.yml'
+            }
+        }
     }
 
     post {
