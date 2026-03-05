@@ -28,7 +28,7 @@ pipeline {
 
         stage("Run Unit Tests") {
             steps {
-                sh 'mv n test'
+                sh 'mvn test'
             }
         }
 
