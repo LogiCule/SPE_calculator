@@ -38,7 +38,7 @@ public class Calculator {
     }
 
     public static double power(double x, double b) {
-        return 0;
+        return Math.pow(x, b);
     }
 
 }
