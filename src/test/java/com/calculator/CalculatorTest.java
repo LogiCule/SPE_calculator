@@ -1,7 +1,6 @@
 package com.calculator;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
@@ -30,10 +29,17 @@ public class CalculatorTest {
         });
     }
 
- @Test
-    void dummyTest() {
-        assertTrue(true);
+    @Test
+    void testSquareRootLargeNumber() {
+        assertEquals(10000.0, Calculator.squareRoot(100000000), 0.0001);
     }
+
+    @Test
+    void testSquareRootSmallNumber() {
+        assertEquals(0.5, Calculator.squareRoot(0.25), 0.0001);
+    }
+
+
     // -------- Factorial Tests --------
 
     @Test
@@ -49,6 +55,11 @@ public class CalculatorTest {
     @Test
     void testFactorialZero() {
         assertEquals(1L, Calculator.factorial(0));
+    }
+
+    @Test
+    void testFactorialTen() {
+        assertEquals(3628800L, Calculator.factorial(10));
     }
 
     @Test
@@ -72,9 +83,16 @@ public class CalculatorTest {
     }
 
     @Test
-    void testNaturalLogInvalidInput() {
+    void testNaturalLogInvalidInputZero() {
         assertThrows(ArithmeticException.class, () -> {
             Calculator.naturalLog(0);
+        });
+    }
+
+    @Test
+    void testNaturalLogNegativeInput() {
+        assertThrows(ArithmeticException.class, () -> {
+            Calculator.naturalLog(-5);
         });
     }
 
@@ -95,4 +113,22 @@ public class CalculatorTest {
     void testPowerNegativeExponent() {
         assertEquals(0.25, Calculator.power(2,-2), 0.0001);
     }
+
+    @Test
+    void testPowerZeroBase() {
+        assertEquals(0.0, Calculator.power(0,5), 0.0001);
+    }
+
+    @Test
+    void testPowerFractionExponent() {
+        assertEquals(3.0, Calculator.power(9,0.5), 0.0001);
+    }
+
+/*
+    @Test
+    void testIntentionalFailure() {
+        assertEquals(5.0, Calculator.squareRoot(16), 0.0001);
+    }
+*/
+
 }
