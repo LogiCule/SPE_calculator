@@ -11,4 +11,16 @@ public class Calculator {
         return Math.sqrt(x);
     }
 
+    public static double factorial(int x) {
+        return 0;
+    }
+
+    public static double naturalLog(double x) {
+        return 0;
+    }
+
+    public static double power(double x, double b) {
+        return 0;
+    }
+
 }
