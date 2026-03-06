@@ -38,17 +38,17 @@ public class MainTest {
 
     @Test
     void testFactorialFive() {
-        assertEquals(120, Calculator.factorial(5));
+        assertEquals(120L, Calculator.factorial(5));
     }
 
     @Test
     void testFactorialOne() {
-        assertEquals(1, Calculator.factorial(1));
+        assertEquals(1L, Calculator.factorial(1));
     }
 
     @Test
     void testFactorialZero() {
-        assertEquals(1, Calculator.factorial(0));
+        assertEquals(1L, Calculator.factorial(0));
     }
 
     @Test

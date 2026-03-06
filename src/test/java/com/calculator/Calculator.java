@@ -11,6 +11,7 @@ public class Calculator {
         return Math.sqrt(x);
     }
 
+
     public static long factorial(long n) {
 
         if (n < 0) {
@@ -28,7 +29,12 @@ public class Calculator {
     }
 
     public static double naturalLog(double x) {
-        return 0;
+
+        if (x <= 0) {
+            throw new ArithmeticException("Natural log undefined for non-positive numbers");
+        }
+
+        return Math.log(x);
     }
 
     public static double power(double x, double b) {
