@@ -24,6 +24,7 @@ public class Calculator {
         for (int i = 1; i <= n; i++) {
             result = (result * i) % MOD;
         }
+        System.out.println(result);
         return result;
     }
 
